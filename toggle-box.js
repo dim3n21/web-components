@@ -2,14 +2,14 @@ class ToggleBox extends HTMLElement {
     constructor() {
         super();
         this._isOpen;
-        this._buttonText = 'open-close'
+        this._buttonText = 'toggleButton';
         this.attachShadow({ mode: 'open'});
         this.shadowRoot.innerHTML = `
             <style>
                 .main-button {
                     background-color: #55c57a;
                     color: #fff; 
-                    width: 75px;
+                    width: 100px;
                     padding: 5px;
                     text-align: center;
                     border-radius: 5px;
@@ -41,7 +41,8 @@ class ToggleBox extends HTMLElement {
     connectedCallback() {
         if (this.hasAttribute('isOpen')) {
             this._infoBox.style.display = this.getAttribute('isOpen') === 'true' ? 'block' : 'none';
-        }
+            this._buttonText = this.getAttribute('isOpen') === 'true' ? 'close' : 'open';
+        } 
     }
 
     _onClick() {
