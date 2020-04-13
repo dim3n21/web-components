@@ -9,7 +9,7 @@ class Tooltip extends HTMLElement {
         div {
             background-color: #55c57a;
             padding: 10px;
-            border-radius: 10px;
+            border-radius: 20px;
             color: #fff;
             position: absolute;
             z-index: 10;
