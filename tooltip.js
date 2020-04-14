@@ -1,7 +1,7 @@
 class Tooltip extends HTMLElement {
     constructor() {
         super();
-        this._tooltipContainer;
+        this._tooltipVisible;
         this._tooltipIcon;
         this._tooltipText = 'This is the tooltip text!';
         this.attachShadow({ mode: 'open' });
@@ -67,13 +67,26 @@ class Tooltip extends HTMLElement {
     }
 
     _showToolTip() {
-        this._tooltipContainer = document.createElement('div');
-        this._tooltipContainer.textContent = this._tooltipText;
-        this.shadowRoot.appendChild(this._tooltipContainer);
+        this._tooltipVisible = true;
+        this._render();
     }
 
     _hideToolTip() {
-        this.shadowRoot.removeChild(this._tooltipContainer);
+        this._tooltipVisible = false;
+        this._render();
+    }
+
+    _render() {
+        let tooltipContainer = this.shadowRoot.querySelector('div');
+        if (this._tooltipVisible) {
+            tooltipContainer = document.createElement('div');
+            tooltipContainer.textContent = this._tooltipText;
+            this.shadowRoot.appendChild(tooltipContainer);
+        } else {
+            if (tooltipContainer) {
+                this.shadowRoot.removeChild(tooltipContainer);
+            }
+        }
     }
 }
 
