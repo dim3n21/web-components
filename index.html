@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Components</title>
+    <link rel="stylesheet" href="style.css">
     <script src="tooltip.js"></script>
     <script src="toggle-box.js"></script>
 </head>
 <body>
-    <p>Welcome to the <wc-tooltip text='First web component tooltip'>web-components</wc-tooltip></p>
-    <p>Welcome to the <wc-tooltip>web-components</wc-tooltip> second time!</p>
+    <p>Welcome to the
+        <wc-tooltip text='Web components are a set of web platform APIs that allow you to create new custom, reusable, encapsulated HTML tags to use in web pages and web apps.'>
+            <span class='highlight'>web-components</span> 
+        </wc-tooltip>
+    </p>
 
     <wc-toggle-box isOpen='true'></wc-toggle-box>
 </body>

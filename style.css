@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #55c57a;
+    --color-primary-darker: #28b485;
+    --color-primary-gradient: rgba(85,197,122, 0.3);
+    --color-white: #fff;
+    --color-grey-light-1: #faf9f9;
+    font-family: sans-serif;
+}

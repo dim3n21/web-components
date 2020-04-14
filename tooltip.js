@@ -6,17 +6,32 @@ class Tooltip extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `
         <style>
-        div {
-            background-color: #55c57a;
-            padding: 10px;
-            border-radius: 20px;
-            color: #fff;
-            position: absolute;
-            z-index: 10;
-        }
+            div {
+                background-color: var(--color-primary);
+                padding: 10px;
+                margin-top: 5px;
+                border-radius: 10px;
+                color: var(--color-white);
+                position: absolute;
+                z-index: 10;
+            }
+
+            .tooltip-icon {
+                background: var(--color-primary);
+                color: white;
+                padding: 0.15rem 0.5rem;
+                text-align: center;
+                border-radius: 50%;
+              }
+
+              ::slotted(.highlight) {
+                  background-color: var(--color-grey-light-1);
+                  padding: 0 5px;
+              }
         </style>
+
         <slot>Some Default</slot>
-        <span> (?) </span>
+        <span class="tooltip-icon">?</span>
         `
     }
 

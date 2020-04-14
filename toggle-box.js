@@ -7,8 +7,8 @@ class ToggleBox extends HTMLElement {
         this.shadowRoot.innerHTML = `
             <style>
                 .main-button {
-                    background-color: #55c57a;
-                    color: #fff; 
+                    background-color: var(--color-primary);
+                    color: var(--color-white); 
                     width: 100px;
                     padding: 5px;
                     text-align: center;
@@ -16,7 +16,7 @@ class ToggleBox extends HTMLElement {
                 }
 
                 .main-button:hover {
-                    background-color: #28b485;
+                    background-color: var(--color-primary-darker);
                     cursor: pointer;
                 }
 
@@ -24,13 +24,16 @@ class ToggleBox extends HTMLElement {
                     margin-top: 10px;
                     padding: 30px;
                     border-radius: 10px;
-                    background-color: rgba(85,197,122, 0.3);
+                    background-color: var(--color-primary-gradient);
                     width: 400px;
                 }
             </style>
-            <div class="main-button">${this._buttonText}</div>
-            <div id="info-box" class="info-box">
-                Some info
+            <div>
+                <slot></slot>
+                <div class="main-button">${this._buttonText}</div>
+                <div id="info-box" class="info-box">
+                    Some info
+                </div>
             </div>
         `
         this._infoBox = this.shadowRoot.querySelector('#info-box');
