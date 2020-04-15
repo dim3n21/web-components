@@ -15,6 +15,7 @@ class Tooltip extends HTMLElement {
                 color: var(--color-white);
                 position: absolute;
                 z-index: 10;
+                width: 50%;
             }
 
             .tooltip-icon {
@@ -23,6 +24,10 @@ class Tooltip extends HTMLElement {
                 padding: 0.15rem 0.5rem;
                 text-align: center;
                 border-radius: 50%;
+              }
+
+              :host {
+                position = 'relative';
               }
 
               ::slotted(.highlight) {
@@ -44,7 +49,6 @@ class Tooltip extends HTMLElement {
         this._tooltipIcon = this.shadowRoot.querySelector('span');
         this._tooltipIcon.addEventListener('mouseenter', this._showToolTip.bind(this));
         this._tooltipIcon.addEventListener('mouseleave', this._hideToolTip.bind(this));
-        this.style.position = 'relative';
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
